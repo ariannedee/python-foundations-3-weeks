@@ -20,11 +20,11 @@ Go to https://www.python.org/downloads/
 
 **Mac/Linux**: Follow the prompts and install using the default settings.
 
-**Windows**: Follow these instructions
+**Windows**:
 
-- New Python install - [instructions](docs/WININSTALL.md)
+- You're installing Python now - [instructions](docs/WININSTALL.md)
 
-- Previously installed Python - [instructions](docs/WINSETPATH.md)
+- You've already installed Python - [instructions](docs/WINSETPATH.md)
 
 ### 2. Download PyCharm CE
 
