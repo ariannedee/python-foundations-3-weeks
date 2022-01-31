@@ -16,34 +16,26 @@ Before the class, please follow these instructions:
 
 Go to https://www.python.org/downloads/
 
-Click the yellow button at the top to download the latest version of Python.
+<img width="60%" src="docs/img/python_download.png">
 
-#### On Mac or Linux
+**Mac/Linux**: Follow the prompts and install using the default settings.
 
-Follow the prompts and install using the default settings.
+**Windows**: Follow these instructions
 
-#### On Windows
+- New Python install - [instructions](docs/WININSTALL.md)
 
-The default settings don't add Python to your PATH so your computer doesn't know where to look for it when Python runs
-(for some inexplicable reason).
+- Previously installed Python - [instructions](docs/WINSETPATH.md)
 
-##### If you're just installing Python now
+### 2. Download PyCharm CE
 
-Follow the instructions here: [Windows Python installer instructions](docs/WININSTALL.md)
-
-##### If you've already installed Python with the default settings
-
-Follow the instructions here: [Add Python to PATH variable in Windows](docs/WINSETPATH.md)
-
-### 2. Download PyCharm (Community Edition)
-
-Download here: https://www.jetbrains.com/pycharm/download/
+Download the free, community edition
+https://www.jetbrains.com/pycharm/download/
 
 Install, open, and use the default settings.
 
 ### 3. Install Git
 
-Follow the instructions for your operating system if you don't already have Git installed: 
+Follow your operating system instructions if you don't already have Git installed: 
 [Git install instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### 4. Clone the course repository 
