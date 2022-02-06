@@ -1,6 +1,20 @@
+# Python compile files
 __pycache__
 *.py[cod]
+
+# Virtual environment
 venv
+
+# IDE settings
 .idea
 .vscode
+
+# Jupyter notebook history
 .ipynb_checkpoints
+
+# Personal project code
+my_project/
+project/
+
+# Environment variables
+.env
