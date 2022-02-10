@@ -31,3 +31,5 @@ print(math.e)
 print(math.pi)
 
 print(math.log(100, 10))
+
+print("Hello class!")
