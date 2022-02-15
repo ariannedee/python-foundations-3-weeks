@@ -1,54 +1,52 @@
-# Dictionaries as objects
-book_1 = {"title": "To Kill a Mockingbird", "author": "Harper Lee", "published_year": 1960}
-book_2 = {"title": "Jane Eyre", "author": "Charlotte Brontë", "published_year": 1847}
-book_3 = {"title": "1984", "author": "George Orwell", "published_year": 1949}
+a_dict = {'a': 'apple', 'b': 'banana', 'c': 'cantaloupe'}
 
-books = [book_1, book_2, book_3]
+print(a_dict['b'])             # Retrieve an item
+print(a_dict.get('b'))         # Retrieve an item safely
+print(a_dict.get('d'))         # If key doesn't exist, return None
+print(a_dict.get('d', 'N/A'))  # If key doesn't exist, return a default value
 
-def book_sort_key(book):
-    return book['published_year']
+a_dict['d'] = 'dragonfruit'  # Add a new item
+a_dict['b'] = 'blueberry'    # Update an item
+del a_dict['a']              # Delete an item
 
-books.sort(key=lambda book: book['published_year'])
+# Looping over dictionaries
+for letter in a_dict:
+    print(f'{letter}: {a_dict[letter]}')
+
+for fruit in a_dict.values():
+    print(fruit)
+
+for letter, fruit in a_dict.items():  # This is preferred
+    print(f'{letter}: {fruit}')
+
+if 'a' in a_dict:
+    print('Found key')
 
 # Dictionaries as maps
-canadian_capitals = {
-    'AB': 'Edmonton',
-    'BC': 'Victoria',
-    'MB': 'Winnipeg',
-    'NB': 'Fredericton',
-    'NL': 'St. John\'s',
-    'NS': 'Halifax',
-    'NT': 'Yellowknife',
-    'NU': 'Iqaluit',
-    'ON': 'Toronto',
-    'PE': 'Charlottetown',
-    'QC': 'Quebec City',
-    'SK': 'Regina',
-    'YT': 'Whitehorse'
+best_picture_winners = {
+    2020: 'Nomadland',
+    2019: 'Parasite',
+    2018: 'Green Book',
+    2017: 'Shape of Water'
 }
 
-canadian_capitals.keys()    # ['AB', 'BC', ...]
-canadian_capitals.values()  # ['Edmonton', 'Victoria', ...]
+for year, movie in best_picture_winners.items():
+    print(f'{movie} won in {year}')
 
-print(canadian_capitals['ON'])  # Get an item
-del canadian_capitals['AB']  # Delete an item
-canadian_capitals['NU'] = 'Bob'  # Update an item
-canadian_capitals['XX'] = 'New capital'  # Add an item
 
-# Get value if the key exists, else return None
-print(canadian_capitals.get('AA'))
+# Dictionaries as objects
+movie_1 = {"title": "Avatar", "year": 2009, "GBO": 2847}
+movie_2 = {"title": "Avengers: Endgame", "year": 2019, "GBO": 2797}
+movie_3 = {"title": "Titanic", "year": 1997, "GBO": 2187}
 
-# Get value if the key exists, else return a default value
-print(canadian_capitals.get('AA', 'N/A'))
+highest_grossing_movies = [movie_1, movie_2, movie_3]
 
-for code in canadian_capitals:
-    print(f'The capital of {code} is {canadian_capitals[code]}')
 
-for capital in canadian_capitals.values():
-    print(capital)
+def movie_sort_function(book):
+    return book['year']
 
-for province, capital in canadian_capitals.items():
-    print(f'The capital of {province} is {capital}')
 
-if 'AA' in canadian_capitals:
-    print('Found key')
+highest_grossing_movies.sort(key=movie_sort_function)
+
+for movie in highest_grossing_movies:
+    print(f"{movie['title']} made ${movie['GBO']/1000} billion in {movie['year']}")
