@@ -1,4 +1,4 @@
-from quiz import get_questions, run_quiz
+from quiz import get_questions, Quiz
 
 questions = get_questions(2)
-run_quiz(questions)
+Quiz(questions).run_quiz()
