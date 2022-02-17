@@ -2,7 +2,7 @@
 Unit tests for wordle_result
 
 1) $ pip3 install pytest  <-- install pytest
-2) $ pytest problems/test_wordle.py  <-- run tests
+2) $ pytest problems/solutions/test_wordle.py  <-- run tests
 """
 from pytest import mark
 
