@@ -1,5 +1,6 @@
 """
-Write a Wordle clone
+Make a command-line Wordle clone
+https://www.nytimes.com/games/wordle/index.html
 """
 from problem_4_wordle import wordle_result
 
