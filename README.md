@@ -152,7 +152,7 @@ and
 String concatination, formatting and interpolation
 
 [Interactive scenario 2](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X002/)
-(step 5)
+(steps 5 & 6)
 /
 [Video 1 lesson 2.7](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_02_07/)
 
@@ -198,9 +198,13 @@ and
 
 Writing simple scripts
 
+*Todo*
+
 ### Week 3
 
 Working with real-world applications
+
+*Todo*
 
 ## FAQs
 
