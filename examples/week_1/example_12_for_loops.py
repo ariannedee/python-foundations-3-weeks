@@ -21,3 +21,15 @@ for number in primes:
 # If you need to know the index, use enumerate()
 for i, number in enumerate(primes):
     print(f'{i}: {number}')
+
+
+# Complex example - create list of all primes under 100
+primes = []
+for i in range(100):
+    for n in range(2, i):
+        if i % n == 0:  # Check divisibility
+            break
+    else:               # If for-loop completes without a break, do this
+        primes.append(i)
+
+print(primes)
