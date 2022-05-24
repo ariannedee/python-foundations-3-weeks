@@ -1,4 +1,4 @@
-from example_21_enums import Person, TimeOfDay
+from example_32_enums import Person, TimeOfDay
 
 
 class Cowboy(Person):

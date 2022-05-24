@@ -1,4 +1,4 @@
-from example_14_clock import Clock
+from example_25_clock import Clock
 
 a_clock = Clock()  # Create new instance of Clock class
 print(a_clock)

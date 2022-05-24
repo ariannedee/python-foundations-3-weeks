@@ -1,8 +1,8 @@
 from pprint import pprint  # pretty print function
 
-import example_21_enums
-from example_21_enums import Person
-from example_21_enums import Person as Robot
+import example_32_enums
+from example_32_enums import Person
+from example_32_enums import Person as Robot
 
 
 def create_person(name):
