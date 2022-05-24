@@ -2,7 +2,7 @@ x = 3
 
 while x >= 0:  # Keep looping until condition is met
     print(x)
-    x = x - 1
+    x -= 1
 
 
 y = 0
