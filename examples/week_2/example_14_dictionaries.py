@@ -1,3 +1,4 @@
+# Dictionaries are key-value based, unordered, and mutable
 a_dict = {'a': 'apple', 'b': 'banana', 'c': 'cantaloupe'}
 
 print(a_dict['b'])             # Retrieve an item

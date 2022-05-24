@@ -1,6 +1,9 @@
-# Indexing and slicing
-new_list = [0, 1, 2, 3]
+# Lists are ordered, mutable and can have duplicates
+new_list = [0, 1, 2, 2, 3]
 
+print(len(new_list))  # Get length
+
+# Indexing and slicing
 print(new_list[1])
 print(new_list[1:3])
 print(new_list[:2])
@@ -19,7 +22,7 @@ print(languages)
 
 
 # More list methods
-new_list.insert(1, True)  # Lists can hold any type of data
+new_list.insert(2, True)  # Lists can hold any type of data
 new_list.extend([1, 2, 3])
 print(new_list)
 new_list.reverse()
