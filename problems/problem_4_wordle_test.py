@@ -6,7 +6,7 @@ Unit tests for wordle_result
 """
 from pytest import mark
 
-from solutions.problem_4_wordle import wordle_result
+from problem_4_wordle import wordle_result
 
 
 @mark.parametrize(('word', 'guess', 'result'), [
