@@ -9,29 +9,19 @@ from random import choice
 from problem_4_wordle import wordle_result
 
 
-def get_random_word():
-    with open('data/words.txt') as file:
-        try:
-            word = choice(file.readlines()).strip()
-        except ValueError:
-            print('words.txt is empty')
-    return word
+def retrieve_random_word(word_file='data/words.txt'):
+    with open(word_file) as file:
+        lines = file.readlines()
+    if len(lines) > 0:
+        random_line = choice(lines)
+        lines.remove(random_line)
+    else:
+        raise ValueError(f'{word_file} is empty')
 
-
-def remove_word_from_file(word):
-    lines = []
-    found = False
-    with open('data/words.txt', 'r') as file:
-        for line in file.readlines():
-            if line.strip() == word:
-                found = True
-            else:
-                lines.append(line)
-    if not found:
-        raise ValueError(f'{word} not found in words.txt')
-
-    with open('data/words.txt', 'w') as file:
+    with open(word_file, 'w') as file:
         file.writelines(lines)
+
+    return random_line.strip()
 
 
 def is_valid(word):
@@ -58,7 +48,7 @@ def run_game(word):
     num_guesses = 6
     word_length = len(word)
     while num_guesses > 0:
-        print(f"Enter a {word_length} letter word ({num_guesses} guesses)")
+        print(f"Enter a {word_length} letter word ({num_guesses} guesses left)")
         guess = get_guess(word_length)
         print(wordle_result(word, guess))
         num_guesses -= 1
@@ -69,7 +59,5 @@ def run_game(word):
 
 
 if __name__ == '__main__':
-    word = get_random_word()
+    word = retrieve_random_word()
     run_game(word.lower())
-    remove_word_from_file(word)
-

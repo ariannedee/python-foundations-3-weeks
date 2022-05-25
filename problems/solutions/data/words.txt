@@ -38,7 +38,6 @@ Doubt
 Draft
 Drama
 Dream
-Dress
 Drink
 Drive
 Earth
@@ -46,7 +45,6 @@ Enemy
 Entry
 Error
 Event
-Faith
 Fault
 Field
 Fight
@@ -92,10 +90,8 @@ Music
 Night
 Noise
 North
-Novel
 Nurse
 Offer
-Order
 Other
 Owner
 Panel
@@ -161,7 +157,6 @@ Steel
 Stock
 Stone
 Store
-Study
 Stuff
 Style
 Sugar
