@@ -8,7 +8,7 @@ base_url = f'https://api.openweathermap.org/data/2.5/onecall'
 
 
 params = {
-    'appid': '84cc4f09689acb2ab1ac614119a80558',
+    'appid': 'Use your token here',
     'lat': 49.25235,
     'lon': -123.0515,
     'units': 'metric',
