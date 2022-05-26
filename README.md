@@ -265,7 +265,7 @@ No interactive scenario
 #### 9. Script arguments
 
 No interactive scenario or video lesson
-/
+
 Code examples in 
 `examples/week_2/example_23_args.py` and
 `examples/week_2/example_24_click.py`
