@@ -198,7 +198,77 @@ and
 
 Writing simple scripts
 
-*Todo*
+#### 1. Lists
+
+[Interactive scenario 4](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X004/)
+(step 1)
+/
+[Video 1 lesson 4.3](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_04_03/)
+
+#### 2. Dictionaries
+
+[Interactive scenario 4](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X004/)
+(step 2)
+/
+[Video 2 lesson 1.3](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_01_03/)
+
+#### 3. Tuples and sets
+
+[Interactive scenario 4](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X004/)
+(steps 3 & 4)
+/
+[Video 1 lesson 5.2](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_05_02/)
+
+#### 4. Exceptions
+
+Catching and throwing errors/exceptions
+
+[Interactive scenario 5](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X005/)
+(steps 1 & 2)
+/
+[Video 2 lesson 1.4](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_01_04/)
+
+#### 5. Files
+
+Reading and writing to text files and CSV files
+
+[Interactive scenario 5](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X005/)
+(steps 3 - 5)
+/
+[Video 2 lesson 2](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_02_00/)
+(lessons 2.1 - 2.3)
+
+#### 6. HTTP requests
+
+Making GET and POST requests using the `requests` library
+
+[Interactive scenario 5](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X005/)
+(steps 1 & 4)
+/
+[Video 2 lesson 7.1](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_07_01/)
+
+#### 7. APIs
+
+Getting data from APIs
+
+[Interactive scenario 5](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X005/)
+(steps 2, 3 & 5)
+/
+[Video 2 lesson 7.5](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_07_05/)
+
+#### 8. Command line overview
+
+No interactive scenario
+/
+[Video 2 lesson 3.1](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_03_01/)
+
+#### 9. Script arguments
+
+No interactive scenario or video lesson
+/
+Code examples in 
+`examples/week_2/example_23_args.py` and
+`examples/week_2/example_24_click.py`
 
 ### Week 3
 
