@@ -274,7 +274,60 @@ Code examples in
 
 Working with real-world applications
 
-*Todo*
+#### 1. Pip
+
+Installing external packages with `pip`
+
+[Interactive scenario 7](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X007/)
+(steps 2 - 4)
+/
+[Video 2 lesson 3.2](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_03_02/)
+
+#### 2. Virtual environments
+
+Managing project environments with `venv`
+
+[Interactive scenario 7](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X007/)
+(step 5)
+/
+[Video 2 lesson 3.3](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_03_03/)
+
+#### 3. Setting up projects
+
+Working with `venv`, git and GitHub
+
+No interactive scenario
+/
+Video 2 lesson [3.4](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_03_04/)
+and
+[3.5](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_03_05/)
+
+
+#### 4. Classes
+
+Using and creating classes
+
+[Interactive scenario 8](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X008/)
+/
+No video lesson
+
+#### 5. Dunder methods
+
+Understanding dunder methods
+
+[Interactive scenario 8](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X008/)
+step 2
+/
+No video lesson
+
+
+#### 6. Modules and packages
+
+Imports, __init__.py, namespaces, scope and __name__.
+
+[Interactive scenario 9](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X009/)
+/
+[Video 2 lesson 5](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_05_01/)
 
 ## FAQs
 
