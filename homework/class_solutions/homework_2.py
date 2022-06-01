@@ -1,65 +1,60 @@
-from datetime import datetime
-from pprint import pprint
 import sys
+from datetime import datetime
+
 import requests
 
-# https://openweathermap.org/api/one-call-api
+assert len(sys.argv) > 1, "Expected name as a script argument"
+name = sys.argv[1]
+
+def c_to_f(temp_c):
+    return (temp_c * 9 / 5) + 32
+
 base_url = f'https://api.openweathermap.org/data/2.5/onecall'
-coords = (49.25481095208678, -123.06157037494123)
-
 params = {
-    'appid': '...',
-    'lat': coords[0],
-    'lon': coords[1],
-    'exclude': 'minutely,hourly,current',
+    'appid': 'Your app id',
+    'lat': 49.25235,
+    'lon': -123.0515,
     'units': 'metric',
+    'exclude': 'minutely,hourly,current'
 }
-
 headers = {
     'content-type': 'application/json'
 }
 
 response = requests.get(base_url, headers=headers, params=params)
 
-weather = response.json()['daily'][0]
-pprint(weather)
-
-def c_to_f(temp):
-    return (temp * 9 / 5) + 32
-
-assert len(sys.argv) == 2
-
-name = sys.argv[1].strip().title()
-condition = weather['weather'][0]['description']
-temp_c_high = weather['temp']['max']
-temp_c_low = weather['temp']['min']
-sunrise = datetime.fromtimestamp(weather['sunrise'])
-sunset = datetime.fromtimestamp(weather['sunset'])
-temp_f_high = c_to_f(temp_c_high)
-temp_f_low = c_to_f(temp_c_low)
-
-reminders = []
-with open('reminders.txt') as file:
-    for line in file.readlines():
-        reminders.append(line.strip())
-
-print('------------------------------')
-
-content = f"""
-Good morning, {name}
-
+if response.status_code == 200:
+    data = response.json()
+    today = data['daily'][0]
+    high_c = today['temp']['max']
+    low_c = today['temp']['min']
+    condition = today['weather'][0]['description']
+    sunrise = datetime.fromtimestamp(today['sunrise'])
+    sunset = datetime.fromtimestamp(today['sunset'])
+    weather_string = f"""
 Today there will be {condition}.
-High: {temp_c_high:.1f} °C ({temp_f_high:.1f} °F)
-Low: {temp_c_low:.1f} °C ({temp_f_low:.1f} °F)
-
+High: {high_c} °C ({c_to_f(high_c)} °F)
+Low: {low_c} °C ({c_to_f(low_c)} °F)
 Sunrise:️ {datetime.strftime(sunrise, '%-I:%M %p')}
 Sunset: {datetime.strftime(sunset, '%-I:%M %p')}
-
 """
+else:
+    weather_string = "Could not retrieve weather"
 
-content += 'Remember to:\n'
-for reminder in reminders:
-    content += f'- {reminder}\n'
+reminder_string = 'Remember to:'
 
-# More API content
-print(content)
+with open('reminders.txt') as file:
+    reminders = file.readlines()
+    print(len(reminders))
+    if not len(reminders):
+        reminder_string += '\n  No reminders'
+    else:
+        for reminder in reminders:
+            reminder_string += f'\n- {reminder.strip()}'
+
+email = f"""
+Good morning, {name}!
+{weather_string}
+{reminder_string}"""
+
+print(email)
