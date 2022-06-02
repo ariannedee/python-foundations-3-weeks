@@ -10,7 +10,7 @@ print(new_tuple[:2])
 print(new_tuple[2:])
 
 try:
-    new_tuple[0] = 'test'
+    new_tuple[0] = 'test'  # Tuples are immutable; this will fail
     print(new_tuple)
 except TypeError as e:
     print(e)

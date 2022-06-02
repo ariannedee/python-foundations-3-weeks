@@ -2,16 +2,17 @@ from pprint import pprint
 
 import requests
 
-DEBUG = False
+DEBUG = True
+
 
 base_url = f'https://api.openweathermap.org/data/2.5/onecall'
-
 
 params = {
     'appid': 'Use your token here',
     'lat': 49.25235,
     'lon': -123.0515,
     'units': 'metric',
+    'exclude': 'minutely,hourly,current'
 }
 
 headers = {

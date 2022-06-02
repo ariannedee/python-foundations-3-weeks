@@ -11,13 +11,13 @@ a_dict['b'] = 'blueberry'    # Update an item
 del a_dict['a']              # Delete an item
 
 # Looping over dictionaries
-for letter in a_dict:
+for letter in a_dict:  # Loops over keys by default
     print(f'{letter}: {a_dict[letter]}')
 
-for fruit in a_dict.values():
+for fruit in a_dict.values():  # Loop over values
     print(fruit)
 
-for letter, fruit in a_dict.items():  # This is preferred
+for letter, fruit in a_dict.items():  # Loop over (key, value). This is preferred
     print(f'{letter}: {fruit}')
 
 if 'a' in a_dict:
@@ -43,11 +43,12 @@ movie_3 = {"title": "Titanic", "year": 1997, "GBO": 2187}
 highest_grossing_movies = [movie_1, movie_2, movie_3]
 
 
-def movie_sort_function(book):
-    return book['year']
+def movie_sort_function(movie):
+    return movie['year']
 
 
 highest_grossing_movies.sort(key=movie_sort_function)
+highest_grossing_movies.sort(key=lambda movie: movie['year'])  # Lambda functions: one-line, unnamed functions
 
 for movie in highest_grossing_movies:
     print(f"{movie['title']} made ${movie['GBO']/1000} billion in {movie['year']}")

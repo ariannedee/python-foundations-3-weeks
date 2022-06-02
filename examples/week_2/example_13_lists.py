@@ -20,14 +20,23 @@ languages.insert(1, 'Icelandic')    # Add item to list at index
 languages.remove('French')
 print(languages)
 
+if 'Tagalog' in languages:
+    print('Kumusta')
+
+for language in languages:
+    print(f'I can count to 10 in {language}')
+
+for index, lang in enumerate(languages):
+    print(f'{index + 1}: {lang}')
 
 # More list methods
-new_list.insert(2, True)  # Lists can hold any type of data
-new_list.extend([1, 2, 3])
+new_list.insert(0, -1)      # Insert item at an index
+new_list.extend([1, 2, 3])  # Add contents of another list to the end
 print(new_list)
-new_list.reverse()
+new_list.reverse()  # Reverse in-place
 print(new_list)
-print(new_list.count(1))  # Remember, 1 == True
+print(new_list.count(1))
+print(new_list.index(1))  # Find position of item if in list, else raise ValueError
 new_list.sort()
 print(new_list)
 
@@ -37,5 +46,10 @@ matrix = [[1, 2, 3],
           [4, 5, 6],
           [7, 8, 9]]
 
-matrix[1][0] = 1000
+matrix[1][0] = 1000  # Replace the 4 with 1000
 print(matrix)
+
+# List comprehensions (more advanced)
+nums = [1, 2, 3, 4]
+squares = [num ** 2 for num in nums]  # Create a new list from an existing one
+even_squares = [num ** 2 for num in nums if num % 2 == 0]  # Can filter with if's
