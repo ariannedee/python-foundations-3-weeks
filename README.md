@@ -292,6 +292,8 @@ Managing project environments with `venv`
 /
 [Video 2 lesson 3.3](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_03_03/)
 
+Connecting PyCharm to your virtual environment: [instructions](docs/PYCHARM_VENV.md)
+
 #### 3. Setting up projects
 
 Working with `venv`, git and GitHub
@@ -328,6 +330,14 @@ Imports, __init__.py, namespaces, scope and __name__.
 [Interactive scenario 9](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X009/)
 /
 [Video 2 lesson 5](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_05_01/)
+
+#### 7. Code hosting
+
+Options for storing your code on the internet.
+
+No interactive scenario
+/
+[Video 2 lesson 9](https://learning.oreilly.com/videos/next-level-python/9780136904083/9780136904083-NLP1_01_09_00/)
 
 ## FAQs
 
