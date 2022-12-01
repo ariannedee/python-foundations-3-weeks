@@ -7,6 +7,7 @@ Create a command-line application that:
 
 Some ideas:
 - Expand any of the practice projects from week 1
+- Typing speed tester with random sentences from API
 - Text translator using googletrans
 - SMS text sender using twilio (costs $)
 - Automated birthday greeter (text or email)

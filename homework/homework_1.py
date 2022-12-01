@@ -9,9 +9,9 @@
 
 # Todo: Create a string with email content that includes:
 #       - A greeting
-#       - The day's weather + temp
+#       - The day's weather + temp in c and f
 #       - Some reminders
-#       - 2-3 more items based on APIs that you've found
+#       - 1-2 more items based on APIs that you've found
 
 
 # Todo: Print the content to the console
