@@ -11,4 +11,4 @@ def say_hello(name, shout=False):
 
 print(say_hello('Beyoncé'))
 print(say_hello('Shakira', True))
-print(say_hello(name='Bono', shout=True))
+print(say_hello(shout=True, name='Bono'))
