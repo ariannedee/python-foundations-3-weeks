@@ -9,6 +9,6 @@ while True:
     except ValueError:
         print("Invalid number")
 
-with open('apis.csv', 'r') as file:
+with open('data/apis.csv', 'r') as file:
     reader = DictReader(file)
     display_by_category(reader, num_results)
