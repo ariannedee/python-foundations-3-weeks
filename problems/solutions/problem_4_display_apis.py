@@ -11,20 +11,15 @@ sample_apis = [
     {'Name': 'Open-Meteo', 'URL': 'https://open-meteo.com/', 'Category': 'Weather'},
 ]
 
+apis_by_category = defaultdict(list)
 
-def display_by_category(api_list, num_per_page=None):
-    apis_by_category = defaultdict(list)
-    for api in api_list:
-        apis_by_category[api['Category']].append(api)
+for api in sample_apis:
+    category = api['Category']
+    apis_by_category[category].append(api)
 
-    for category, apis in apis_by_category.items():
-        print(f"---- {category.upper()} ----")
-        for i, api in enumerate(apis):
-            print(f"{api['API']}: {api['Link']}")
-            if num_per_page and (i + 1) % num_per_page == 0:
-                input()
-        input()
-
-
-if __name__ == '__main__':
-    display_by_category(sample_apis)
+for category, apis in apis_by_category.items():
+    print(category.upper())
+    print()
+    for api in apis:
+        print(f"{api['Name']}: {api['URL']}")
+    print()
