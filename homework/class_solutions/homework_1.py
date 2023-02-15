@@ -1,29 +1,43 @@
-from random import randint
+from random import (
+    choice,
+    randint,
+)
+
+NAME = 'Arianne'
+
 
 def c_to_f(temp_c):
-    return round((temp_c * 9 / 5) + 32)
+    return (temp_c * 9 / 5) + 32
 
-assert c_to_f(0) == 32
 
-reminders = ['Go for a walk', 'Drink water', 'Stretch']
+assert c_to_f(0) == 32, f"c_to_f(0) was {c_to_f(0)}, not 32"
+assert round(c_to_f(36.5)) == round(98), f"c_to_f(36.5) was {c_to_f(37)}, not 98"
 
-name = input("What's your name? ").strip().title()
-weather = input("What's the weather like? ")
-temp_hi = randint(3, 20)
-temp_lo = randint(temp_hi - 10, temp_hi - 2)
+weather_choices = ['sunny', 'cloudy', 'rainy']
 
-temp_hi_f = c_to_f(temp_hi)
-temp_lo_f = c_to_f(temp_lo)
+weather = choice(weather_choices)
+temp_c_high = randint(8, 20)
+temp_c_low = randint(-5, 7)
 
-greeting = f"""Good morning, {name}!
+todos = [
+    'Get groceries',
+    'Fix lightbulb',
+    'Run 2k',
+]
+
+temp_f_high = c_to_f(temp_c_high)
+temp_f_low = c_to_f(temp_c_low)
+
+content = f"""Good morning, {NAME}
 
 Today is going to be {weather}.
-High: {round(temp_hi)} °C ({round(temp_hi_f)} °F)
-Low: {round(temp_lo)} °C ({round(temp_lo_f)} °F)
+High: {temp_c_high} °C ({temp_f_high} °F)
+Low: {temp_c_low} °C ({temp_f_low} °F)
+
 """
 
-greeting += "\nRemember to:\n"
-for reminder in reminders:
-    greeting += f"- {reminder}\n"
+content += 'Remember to:\n'
+for todo in todos:
+    content += f'- {todo}\n'
 
-print(greeting)
+print(content)
