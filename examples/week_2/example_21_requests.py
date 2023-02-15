@@ -17,6 +17,9 @@ response = requests.get(URL, headers=headers, params=params)
 # - 502 Bad gateway
 print(response.status_code)
 
+# Raise an exception if the request was unsuccessful
+response.raise_for_status()
+
 # Get text contents
 print(response.text)
 

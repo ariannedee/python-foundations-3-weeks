@@ -4,15 +4,13 @@ import requests
 
 DEBUG = True
 
-
-base_url = f'https://api.openweathermap.org/data/2.5/onecall'
+base_url = f'https://api.open-meteo.com/v1/forecast'
 
 params = {
-    'appid': 'Use your token here',
-    'lat': 49.25235,
-    'lon': -123.0515,
-    'units': 'metric',
-    'exclude': 'minutely,hourly,current'
+    'timezone': 'America/Vancouver',
+    'latitude': 49.25235,
+    'longitude': -123.0515,
+    'daily': ['temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset'],
 }
 
 headers = {
@@ -21,16 +19,15 @@ headers = {
 
 response = requests.get(base_url, headers=headers, params=params)
 
-response.raise_for_status()
-
 data = response.json()
 
 if DEBUG:
+    print(response.url)
     pprint(data)
 
-today = data['daily'][0]
+today = data['daily']
 
-temp_hi = today['temp']['max']
-temp_lo = today['temp']['min']
+temp_hi = today['temperature_2m_max'][0]
+temp_lo = today['temperature_2m_min'][0]
 
 print(f'Today will have a high of {temp_hi}°C and low of {temp_lo}°C')
