@@ -1,50 +1,64 @@
 import sys
+
 import requests
+
+from weather_codes import weather_from_code
 
 args = sys.argv
 
-assert len(args) == 2, "Expected 1 argument of name"
+if len(args) == 1:
+    raise NameError("You must include an argument for 'name'")
 
-name = args[1].strip().title()
+name = args[1]
+
+base_url = f'https://api.open-meteo.com/v1/forecast'
+
+params = {
+    'timezone': 'America/Vancouver',
+    'latitude': 49.25235,
+    'longitude': -123.0515,
+    'daily': ['temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset', 'weathercode'],
+}
 
 def c_to_f(temp_c):
-    return round((temp_c * 9 / 5) + 32)
+    return (temp_c * 9 / 5) + 32
 
-assert c_to_f(0) == 32
 
-greeting = f"Good morning, {name}!"
+assert c_to_f(0) == 32, f"c_to_f(0) was {c_to_f(0)}, not 32"
+assert round(c_to_f(36.5)) == round(98), f"c_to_f(36.5) was {c_to_f(37)}, not 98"
 
-weather_url = "https://api.open-meteo.com/v1/forecast"
-params = {
-    'latitude': 35.67,
-    'longitude': 139.65,
-    'timezone': 'America/Vancouver',
-    'daily': 'temperature_2m_max,temperature_2m_min'
+
+headers = {
+    'content-type': 'application/json',
 }
-response = requests.get(weather_url, params)
 
-if response.status_code == 200:
-    data = response.json()
-    temp_hi_f = c_to_f(temp_hi)
-    temp_lo_f = c_to_f(temp_lo)
-    greeting += f"""
-Today is going to be {weather}.
-High: {round(temp_hi)} °C ({round(temp_hi_f)} °F)
-Low: {round(temp_lo)} °C ({round(temp_lo_f)} °F)
+response = requests.get(base_url, headers=headers, params=params)
+
+data = response.json()
+
+weather_code = data['daily']['weathercode'][0]
+
+weather = weather_from_code.get(weather_code, 'Unknown').lower()
+temp_c_high = data['daily']['temperature_2m_max'][0]
+temp_c_low = data['daily']['temperature_2m_min'][0]
+
+sunrise = data['daily']['sunrise'][0]
+sunset = data['daily']['sunset'][0]
+
+temp_f_high = c_to_f(temp_c_high)
+temp_f_low = c_to_f(temp_c_low)
+
+content = f"""Good morning, {name}
+
+Today's weather: {weather}
+High: {temp_c_high} °C ({temp_f_high} °F)
+Low: {temp_c_low} °C ({temp_f_low} °F)
+
 """
-else:
-    error = f"Got {response.status_code}: {response.reason}"
-    print(error)
-    try:
-        data = response.json()
-        print(data)
-    except Exception as e:
-        print(repr(e))
 
-greeting += "\nRemember to:\n"
-with open('reminders.txt', 'r') as file:
-    reminders = []
-    for reminder in file:
-        greeting += f"- {reminder}"
+content += 'Remember to:\n'
+with open('todo.txt') as file:
+    for todo in file.readlines():
+        content += f'- {todo}'
 
-print(greeting)
+print(content)
