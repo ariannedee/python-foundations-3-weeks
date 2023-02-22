@@ -6,10 +6,10 @@ from weather_codes import weather_from_code
 
 args = sys.argv
 
-if len(args) == 1:
-    raise NameError("You must include an argument for 'name'")
-
-name = args[1]
+try:
+    name = args[1]
+except IndexError:
+    name = 'Your name'
 
 base_url = f'https://api.open-meteo.com/v1/forecast'
 
