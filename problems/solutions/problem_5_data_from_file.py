@@ -1,4 +1,7 @@
-"""Print out the API list, sorted by category, from data/apis.csv"""
+"""
+Display a list of free APIs, sorted by category
+Data is from data/apis.csv
+"""
 import csv
 
 with open('data/apis.csv') as file:

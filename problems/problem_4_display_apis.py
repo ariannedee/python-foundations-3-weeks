@@ -1,3 +1,7 @@
+"""
+Display a list of free APIs, sorted by category
+Data is hardcoded in file
+"""
 sample_apis = [
     {'Name': 'Cat facts', 'URL': 'https://alexwohlbruck.github.io/cat-facts/', 'Category': 'Animal'},
     {'Name': 'Dog facts', 'URL': 'https://dukengn.github.io/Dog-facts-API/', 'Category': 'Animal'},
