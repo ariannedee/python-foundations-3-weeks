@@ -49,7 +49,28 @@ matrix = [[1, 2, 3],
 matrix[1][0] = 1000  # Replace the 4 with 1000
 print(matrix)
 
-# List comprehensions (more advanced)
+# LIST COMPREHENSIONS (more advanced)
+
 nums = [1, 2, 3, 4]
+
+# Basic list comprehension
 squares = [num ** 2 for num in nums]  # Create a new list from an existing one
+
+# Equivalent code using for-loops
+squares_2 = []
+for n in nums:
+    if n % 2 == 0:
+        squares.append(n ** 2)
+
+assert squares == squares_2  # Make sure they give the same result
+
+# List comprehension with a filter
 even_squares = [num ** 2 for num in nums if num % 2 == 0]  # Can filter with if's
+
+# Equivalent code using for-loops
+even_squares_2 = []
+for n in nums:
+    if n % 2 == 0:
+        squares.append(n ** 2)
+
+assert even_squares == even_squares_2  # Make sure they give the same result
