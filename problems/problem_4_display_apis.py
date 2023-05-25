@@ -8,3 +8,8 @@ sample_apis = [
     {'Name': 'Bored', 'URL': 'https://www.boredapi.com/', 'Category': 'Development'},
     {'Name': 'Open-Meteo', 'URL': 'https://open-meteo.com/', 'Category': 'Weather'},
 ]
+
+# todo: Print the apis, organized by category
+# ANIMAL
+# Cat facts: https://alexwohlbruck.github.io/cat-facts/
+# Dog facts: https://dukengn.github.io/Dog-facts-API/
