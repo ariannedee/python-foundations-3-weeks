@@ -1,64 +1,66 @@
 import sys
-
 import requests
+from pprint import pprint
 
 from weather_codes import weather_from_code
 
-args = sys.argv
+DEBUG = False
 
-try:
-    name = args[1]
-except IndexError:
-    name = 'Your name'
-
-base_url = f'https://api.open-meteo.com/v1/forecast'
+URL = f'https://api.open-meteo.com/v1/forecast'
 
 params = {
     'timezone': 'America/Vancouver',
     'latitude': 49.25235,
     'longitude': -123.0515,
-    'daily': ['temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset', 'weathercode'],
+    'daily': ['weathercode', 'temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset'],
 }
+headers = {
+    'content-type': 'application/json'
+}
+
+response = requests.get(URL, headers=headers, params=params)
+
+data = response.json()
+
+if DEBUG:
+    print(response.url)
+    pprint(data)
+
 
 def c_to_f(temp_c):
     return (temp_c * 9 / 5) + 32
 
 
-assert c_to_f(0) == 32, f"c_to_f(0) was {c_to_f(0)}, not 32"
-assert round(c_to_f(36.5)) == round(98), f"c_to_f(36.5) was {c_to_f(37)}, not 98"
+assert c_to_f(0) == 32, f"got {c_to_f(0)}"
+assert round(c_to_f(36.5)) == 98, f"got {round(c_to_f(36.5))}"
 
 
-headers = {
-    'content-type': 'application/json',
-}
+args = sys.argv[1:]  # list of string arguments after the filename
+if len(args):
+    name = ' '.join(args)  # Concatenate list of strings, with spaces in between
+else:
+    name = input("Name: ")
 
-response = requests.get(base_url, headers=headers, params=params)
+name = name.strip().title()
+today = data['daily']
+code = today['weathercode'][0]
+weather_condition = weather_from_code.get(code, f"Code {code} not found").lower()
 
-data = response.json()
+temp_hi = today['temperature_2m_max'][0]
+temp_lo = today['temperature_2m_min'][0]
 
-weather_code = data['daily']['weathercode'][0]
 
-weather = weather_from_code.get(weather_code, 'Unknown').lower()
-temp_c_high = data['daily']['temperature_2m_max'][0]
-temp_c_low = data['daily']['temperature_2m_min'][0]
+greeting = f"""Hello, {name}!
 
-sunrise = data['daily']['sunrise'][0]
-sunset = data['daily']['sunset'][0]
+Today is going to be {weather_condition}.
+High: {temp_hi}°C ({c_to_f(temp_hi)})°F.
+Low: {temp_lo}°C ({c_to_f(temp_lo)})°F.
 
-temp_f_high = c_to_f(temp_c_high)
-temp_f_low = c_to_f(temp_c_low)
-
-content = f"""Good morning, {name}
-
-Today's weather: {weather}
-High: {temp_c_high} °C ({temp_f_high} °F)
-Low: {temp_c_low} °C ({temp_f_low} °F)
-
+Remember to:
 """
 
-content += 'Remember to:\n'
-with open('todo.txt') as file:
-    for todo in file.readlines():
-        content += f'- {todo}'
+with open('reminders.txt', 'r') as file:
+    for reminder in file.readlines():
+        greeting += f"- {reminder}"
 
-print(content)
+print(greeting)
