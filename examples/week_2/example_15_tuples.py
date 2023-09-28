@@ -13,4 +13,4 @@ try:
     new_tuple[0] = 'test'  # Tuples are immutable; this will fail
     print(new_tuple)
 except TypeError as e:
-    print(e)
+    print(repr(e))

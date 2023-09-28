@@ -7,10 +7,11 @@ DEBUG = True
 base_url = f'https://api.open-meteo.com/v1/forecast'
 
 params = {
-    'timezone': 'America/Vancouver',
-    'latitude': 49.25235,
-    'longitude': -123.0515,
-    'daily': ['temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset'],
+    'timezone': 'America/New_York',
+    'latitude': 42.997262156214305,
+    'longitude': -81.20390128320294,
+    'daily': ['weathercode', 'temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset'],
+    'forecast_days': 1,
 }
 
 headers = {
