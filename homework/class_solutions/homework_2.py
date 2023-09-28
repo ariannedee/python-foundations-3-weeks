@@ -1,24 +1,39 @@
-import sys
-import requests
 from pprint import pprint
+import sys
+
+import requests
 
 from weather_codes import weather_from_code
 
+
 DEBUG = False
 
-URL = f'https://api.open-meteo.com/v1/forecast'
+def c_to_f(temp_c):
+    return (temp_c * 9 / 5) + 32
+
+
+assert c_to_f(0) == 32, f"Got {c_to_f(0)}"
+assert round(c_to_f(36.5)) == 98, f"Got {c_to_f(0)}"
+
+assert len(sys.argv) == 2, "Expected file argument for 'name'"
+name = sys.argv[1].strip().title()
+
+# GET WEATHER
+base_url = f'https://api.open-meteo.com/v1/forecast'
 
 params = {
-    'timezone': 'America/Vancouver',
-    'latitude': 49.25235,
-    'longitude': -123.0515,
+    'timezone': 'America/New_York',
+    'latitude': 42.997262156214305,
+    'longitude': -81.20390128320294,
     'daily': ['weathercode', 'temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset'],
+    'forecast_days': 1,
 }
+
 headers = {
     'content-type': 'application/json'
 }
 
-response = requests.get(URL, headers=headers, params=params)
+response = requests.get(base_url, headers=headers, params=params)
 
 data = response.json()
 
@@ -26,41 +41,30 @@ if DEBUG:
     print(response.url)
     pprint(data)
 
+todays_data = data['daily']
+today_code = todays_data['weathercode'][0]
 
-def c_to_f(temp_c):
-    return (temp_c * 9 / 5) + 32
+today_weather = weather_from_code[today_code].lower()
+temp_c_high = todays_data['temperature_2m_max'][0]
+temp_c_low = todays_data['temperature_2m_min'][0]
 
+# GET REMINDERS
+with open('todos.txt') as file:
+    reminders = file.read().split('\n')
 
-assert c_to_f(0) == 32, f"got {c_to_f(0)}"
-assert round(c_to_f(36.5)) == 98, f"got {round(c_to_f(36.5))}"
+# EMAIL CONTENT
+content = f"""Hello {name},
 
+Today is going to be {today_weather}.
 
-args = sys.argv[1:]  # list of string arguments after the filename
-if len(args):
-    name = ' '.join(args)  # Concatenate list of strings, with spaces in between
-else:
-    name = input("Name: ")
-
-name = name.strip().title()
-today = data['daily']
-code = today['weathercode'][0]
-weather_condition = weather_from_code.get(code, f"Code {code} not found").lower()
-
-temp_hi = today['temperature_2m_max'][0]
-temp_lo = today['temperature_2m_min'][0]
-
-
-greeting = f"""Hello, {name}!
-
-Today is going to be {weather_condition}.
-High: {temp_hi}°C ({c_to_f(temp_hi)})°F.
-Low: {temp_lo}°C ({c_to_f(temp_lo)})°F.
+High of {temp_c_high}°C ({c_to_f(temp_c_high)}°F) 
+Low of {temp_c_low}°C ({c_to_f(temp_c_low)}°F) 
 
 Remember to:
 """
 
-with open('reminders.txt', 'r') as file:
-    for reminder in file.readlines():
-        greeting += f"- {reminder}"
+for reminder in reminders:
+    content += f"- {reminder}\n"
 
-print(greeting)
+
+print(content)

@@ -5,28 +5,35 @@ def c_to_f(temp_c):
     return (temp_c * 9 / 5) + 32
 
 
-assert c_to_f(0) == 32, f"got {c_to_f(0)}"
-assert round(c_to_f(36.5)) == 98, f"got {round(c_to_f(36.5))}"
-
+assert c_to_f(0) == 32, f"Got {c_to_f(0)}"
+assert round(c_to_f(36.5)) == 98, f"Got {c_to_f(0)}"
 
 reminders = [
     "Go for a walk",
-    "Drink 3 bottles of water",
-    "Meditate",
+    "Stretch",
 ]
 
-name = input("Name: ").strip().capitalize()
-conditions = ['sunny', 'cloudy', 'rainy', 'snowy']
-weather_condition = random.choice(conditions)
-temp_c = random.randint(18, 28)
+name = input("What's your name? ").strip().title()
 
-greeting = f"""Hello, {name}!
-Today is going to be {weather_condition} and {temp_c}°C ({c_to_f(temp_c)})°F.
+weather = ["sunny", "cloudy", "rainy"]
+
+today_weather = random.choice(weather)
+temp_c_high = random.randint(10, 25)
+temp_c_low = random.randint(0, 10)
+
+
+content = f"""Hello {name},
+
+Today is going to be {today_weather}.
+
+High of {temp_c_high}°C ({c_to_f(temp_c_high)}°F) 
+Low of {temp_c_low}°C ({c_to_f(temp_c_low)}°F) 
 
 Remember to:
 """
 
 for reminder in reminders:
-    greeting += f"- {reminder}\n"
+    content += f"- {reminder}\n"
 
-print(greeting)
+
+print(content)
