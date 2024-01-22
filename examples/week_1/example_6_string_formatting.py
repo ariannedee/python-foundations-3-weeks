@@ -10,10 +10,10 @@ print(f"It will be {temp}° today.")  # f-string (newest)
 
 # Formatting numbers in strings
 pop = 7868872451
-print("There are {:,} people in the world".format(pop))  # use comma as thousands separator
-print(f"It will be {temp:.2f}° today.")                  # format to 2 decimal places
+print(f"There are {pop:,} people in the world")   # use comma as thousands separator
+print(f"It will be {temp:.2f}° today.")           # format to 2 decimal places
 avo_num = 6.0221408e23
-print("Avogadro's number is {:.4g}".format(avo_num))     # format scientific notation
+print(f"Avogadro's number is {avo_num:.4g}")      # format scientific notation
 
 string = ' Hello world '
 string = string.strip()  # Removes whitespace (or input chars) from beginning/end

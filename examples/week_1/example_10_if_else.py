@@ -22,4 +22,3 @@ elif temp >= 100:
     print("It's boiling")
 else:
     print("It's just water")
-
