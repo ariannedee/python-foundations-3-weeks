@@ -14,6 +14,9 @@ def c_to_f(temp):
     return (temp * 9 / 5) + 32
 
 
+assert c_to_f(0) == 32, f"Got {c_to_f(0)}"
+assert round(c_to_f(36.5)) == 98, f"Got {c_to_f(36.5)}"
+
 base_url = f'https://api.open-meteo.com/v1/forecast'
 
 params = {
