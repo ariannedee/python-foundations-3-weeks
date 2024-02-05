@@ -8,7 +8,7 @@ class TimeOfDay(Enum):
     NIGHT = 3
 
 
-class Person(object):
+class Person:
     species = 'Homo Sapien'
 
     def __init__(self, name):
