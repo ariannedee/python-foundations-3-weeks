@@ -1,25 +1,28 @@
 import random
 
 
-def c_to_f(temp):
-    return (temp * 9 / 5) + 32
+def c_to_f(temp_c):
+    return (temp_c * 9 / 5) + 32
 
 
 reminders = [
-    'drink water',
-    'stretch',
-    'move',
+    'Stretches',
+    'Drink 9 cups of water',
 ]
 
-name = input("What's your name? ").strip().title()
-weather = input("What's the weather? ").strip().lower()
-temp_c_hi = random.randint(5, 10)
-temp_c_lo = random.randint(-2, 4)
+name = 'arianne'
+weather = input("Weather: ")
+temp_high = random.randint(13, 25)
+temp_low = random.randint(3, 10)
 
-greeting = f"""Good morning, {name}!
-Today is going to be {weather}.
-High: {temp_c_hi}°C ({c_to_f(temp_c_hi)}°F)'
-Low: {temp_c_lo}°C ({c_to_f(temp_c_lo)}°F)'
+temp_high_f = c_to_f(temp_high)
+temp_low_f = c_to_f(temp_low)
+
+greeting = f"""Good morning, {name.strip().title()}
+
+Today will be {weather}.
+High of {round(temp_high)} °C ({round(temp_high_f)} °F).
+Low of {round(temp_low)} °C ({round(temp_low_f)} °F)
 
 Remember to:
 """
