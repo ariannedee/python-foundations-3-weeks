@@ -61,7 +61,7 @@ If you know Git, clone the repository and then open the `python-foundations-3-we
 
 With the `python-foundations-3-weeks` folder open in Pycharm:
 
-1. In the left panel, navigate to `examples/example_1_first_code.py` and double click to open it in the editor
+1. In the left panel, navigate to `examples/week_1/example_1_first_code.py` and double click to open it in the editor
 
 2. On the open file, right click and select **Run 'example_1_first_code'**
 
