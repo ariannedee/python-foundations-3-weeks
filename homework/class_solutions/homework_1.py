@@ -29,10 +29,9 @@ High of {temp_c_high} °C ({c_to_f(temp_c_high)} °F)
 Low of {temp_c_low} °C ({c_to_f(temp_c_low)} °F)
 
 Remember to:
+{'\n'.join([f"- {reminder}" for reminder in reminders])}
+
+Have a great day!
 """
-
-for reminder in reminders:
-    greeting += f"- {reminder}\n"
-
 
 print(greeting)
