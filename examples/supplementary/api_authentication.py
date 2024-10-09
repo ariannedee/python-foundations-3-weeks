@@ -1,37 +1,44 @@
+"""
+Get repository data from Github's REST API.
+V3 REST API documentation: https://developer.github.com/v3/
+To generate an authentication token for your user, follow: https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
+"""
+
+import json
 import requests
-from bs4 import BeautifulSoup
+import sys
 
-LOGIN_URL = "https://github.com/session"
-USERNAME = "***"
-PASSWORD = "***"
-
-URL = "https://github.com"
-headers = {'User-Agent': f'Your name (your@email.com)'}
-
-# Create new session so that cookies are saved between requests
-session_requests = requests.session()
-
-# Get the authenticity token from the login page
-login_page = session_requests.get(LOGIN_URL, headers=headers)
-soup = BeautifulSoup(login_page.text, 'html.parser')
-
-# The input name might be different depending on the site. Inspect the form and look for a hidden input with "authenticity" or "csrf".
-authenticity_token = soup.find('input', attrs={'name': 'authenticity_token'}).get('value')
-print(authenticity_token)
-
-# Send login request
-data = {
-    'login': USERNAME,
-    'password': PASSWORD,
-    'authenticity_token': authenticity_token,
+BASE_URL = "https://api.github.com"  # The root of all of our api requests
+URL = BASE_URL + '/user/repos'  # The specific data we want
+headers = {
+    'Accept': 'application/vnd.github.v3+json',
+    'Content-Type': 'application/json',
+    'Authorization': 'token {Your token here}',  # See https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
 }
-response = session_requests.post(LOGIN_URL, headers=headers, data=data)
-print(response.status_code)
 
-# Now you are authenticated and can start scraping the URL you want
-response = session_requests.get(URL, headers=headers)
+# Make API request
+response = requests.get(URL, headers=headers)
 
-with open('data/logged_in.html', 'w') as file:  # Open this to verify that your login worked
-    file.write(response.text)
+# Handle bad requests
+if response.status_code != 200:
+    print(response.status_code)
+    print(response.text)
+    sys.exit()
 
-# ... Do some scraping with the result
+# Turn the response string into JSON data. Data is now a list of dictionaries representing repositories
+data = json.loads(response.text)
+
+# Or you can just use the json property.
+data = response.json()
+
+# Now do what you want with the data
+if len(data) > 0:
+    # I want to list all of the attributes we can get from each repository
+    print("Keys")
+    for key in data[0].keys():
+        print('  ' + key)
+
+    # I also want to list each repository name
+    print("\nRepository names")
+    for repo in data:
+        print('  ' + repo['full_name'])
