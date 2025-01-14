@@ -15,19 +15,27 @@ def assert_equals(actual, expected):
 
 
 def next_num(n):
-    if n % 2 == 0:
+    if n == 1:
+        return None
+    elif n % 2 == 0:
         return n // 2
-    return n * 3 + 1
+    else:
+        return n * 3 + 1
+
+
+assert_equals(next_num(1), None)
+assert_equals(next_num(4), 2)
+assert_equals(next_num(5), 16)
 
 
 def collatz(num):
     """Return the Collatz sequence for a number (num) as a string"""
-    result = ''
-    while True:
-        result += f'{num} '
-        if num == 1:
-            return result.strip()
+    sequence_list = []
+    while num:
+        sequence_list.append(str(num))
         num = next_num(num)
+
+    return " ".join(sequence_list)
 
 
 assert_equals(collatz(1), '1')
@@ -35,5 +43,6 @@ assert_equals(collatz(2), '2 1')
 assert_equals(collatz(3), '3 10 5 16 8 4 2 1')
 assert_equals(collatz(4), '4 2 1')
 
-for i in range(1, 101):
+
+for i in range(100):
     print(collatz(i))
