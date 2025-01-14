@@ -20,9 +20,11 @@ languages.insert(1, 'Icelandic')    # Add item to list at index
 languages.remove('French')
 print(languages)
 
+# Conditionals
 if 'Tagalog' in languages:
     print('Kumusta')
 
+# Looping
 for language in languages:
     print(f'I can count to 10 in {language}')
 
@@ -59,8 +61,7 @@ squares = [num ** 2 for num in nums]  # Create a new list from an existing one
 # Equivalent code using for-loops
 squares_2 = []
 for n in nums:
-    if n % 2 == 0:
-        squares.append(n ** 2)
+    squares_2.append(n ** 2)
 
 assert squares == squares_2  # Make sure they give the same result
 
@@ -71,6 +72,14 @@ even_squares = [num ** 2 for num in nums if num % 2 == 0]  # Can filter with if'
 even_squares_2 = []
 for n in nums:
     if n % 2 == 0:
-        squares.append(n ** 2)
+        even_squares_2.append(n ** 2)
 
 assert even_squares == even_squares_2  # Make sure they give the same result
+
+# Looping with different order
+a_list = [2, 4, 1, 3, 5, 2]
+for item in reversed(a_list):
+    print(item)
+
+for item in sorted(a_list):
+    print(item)
