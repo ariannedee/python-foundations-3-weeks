@@ -1,37 +1,33 @@
-from random import choice
+import random
 
 
-def c_to_f(temp):
-    return (temp * 9 / 5) + 32
+def c_to_f(temp_c):
+    return (temp_c * 9 / 5) + 32
 
 
-def assert_equals(actual, expected):
-    assert actual == expected, f"Expected {expected} but got {actual}"
+assert c_to_f(0) == 32, f'Expected 32 but got {c_to_f(0)}'
+assert round(c_to_f(36.7)) == 98, f'Expected 98 but got {round(c_to_f(36.7))}'
 
 
-assert_equals(c_to_f(0), 32)
-assert_equals(round(c_to_f(36.5)),98)
+reminders = ['Breathe deeply', 'Drink more water', 'Stretch twice a day']
+weather_conditions = ['sunny', 'cloudy', 'rainy', 'snowy']
 
+name = input("Name: ").strip().title()
+weather = random.choice(weather_conditions)
+high_temp_c = random.randint(8, 12)
+low_temp_c = random.randint(0, 5)
 
-reminders = ['Go for a walk', 'Drink more water', 'Stretch']
-possible_weather = ['Sunny', 'Cloudy', 'Rainy', 'Snowy']
+message = f"""Good morning {name}!
 
-name = 'arianne'
-weather = choice(possible_weather)
-temp_c_high = float(input("Temp high (in °C): "))
-temp_c_low = float(input("Temp low (in °C): "))
+Today will be {weather}.
 
-
-greeting = f"""Good morning, {name.title()}!
-Today will be {weather.lower()}.
-
-High of {temp_c_high} °C ({c_to_f(temp_c_high)} °F)
-Low of {temp_c_low} °C ({c_to_f(temp_c_low)} °F)
+High: {high_temp_c}C ({c_to_f(high_temp_c)}F)
+Low: {low_temp_c}C ({c_to_f(low_temp_c)}F)
 
 Remember to:
-{'\n'.join([f"- {reminder}" for reminder in reminders])}
-
-Have a great day!
 """
 
-print(greeting)
+for reminder in reminders:
+    message += f"- {reminder}\n"
+
+print(message)
