@@ -1,8 +1,17 @@
-import sys
+from pprint import pprint
 
 import requests
+from weather_codes import weather_from_code
 
-from homework.weather_codes import weather_from_code
+import sys
+
+DEBUG = False
+
+args = sys.argv[1:]
+if len(args) > 0:
+    name = ' '.join(args).strip().title()
+else:
+    name = input("Name: ").strip().title()
 
 base_url = f'https://api.open-meteo.com/v1/forecast'
 
@@ -22,49 +31,36 @@ response = requests.get(base_url, headers=headers, params=params)
 
 data = response.json()
 
-def c_to_f(temp):
-    return (temp * 9 / 5) + 32
+if DEBUG:
+    print(response.url)
+    pprint(data)
+
+today = data['daily']
+
+high_temp_c = today['temperature_2m_max'][0]
+low_temp_c = today['temperature_2m_min'][0]
+weather_code = today['weathercode'][0]
+weather = weather_from_code[weather_code].lower()
 
 
-def assert_equals(actual, expected):
-    assert actual == expected, f"Expected {expected} but got {actual}"
+def c_to_f(temp_c):
+    return (temp_c * 9 / 5) + 32
 
 
-assert_equals(c_to_f(0), 32)
-assert_equals(round(c_to_f(36.5)),98)
+assert c_to_f(0) == 32, f'Expected 32 but got {c_to_f(0)}'
+assert round(c_to_f(36.7)) == 98, f'Expected 98 but got {round(c_to_f(36.7))}'
 
-if len(sys.argv) == 1:
-    name = 'arianne'
-else:
-    name = ' '.join(sys.argv[1:])
+message = f"""Good morning {name}!
 
-weathercode = data['daily']['weathercode'][0]
-weather = weather_from_code[weathercode]
-temp_c_high = data['daily']['temperature_2m_max'][0]
-temp_c_low = data['daily']['temperature_2m_min'][0]
+Today will be {weather}.
 
-sunrise_str = data['daily']['sunrise'][0]
-sunset_str = data['daily']['sunset'][0]
-
-sunrise = sunrise_str.split('T')[1]
-sunset = sunset_str.split('T')[1]
-
-with open('reminders.txt') as file:
-    reminders = file.readlines()
-
-greeting = f"""Good morning, {name.title()}!
-Today will be {weather.lower()}.
-
-High of {temp_c_high:.0f} °C ({c_to_f(temp_c_high):.0f} °F)
-Low of {temp_c_low:.0f} °C ({c_to_f(temp_c_low):.0f} °F)
-
-Sunrise: {sunrise}
-Sunset: {sunset}
+High: {high_temp_c:.1f}°C ({c_to_f(high_temp_c):.1f}°F)
+Low: {low_temp_c:.1f}°C ({c_to_f(low_temp_c):.1f}°F)
 
 Remember to:
-{''.join([f"- {reminder}" for reminder in reminders])}
-
-Have a great day!
 """
+with open('reminders.txt') as file:
+    for reminder in file.readlines():
+        message += f"- {reminder}"
 
-print(greeting)
+print(message)
