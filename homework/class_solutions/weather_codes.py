@@ -11,4 +11,9 @@ weather_from_code = {
     61: "Light rain",
     63: "Moderate rain",
     65: "Heavy rain",
+    70: "Light scattered snow",
+    71: "Light snow",
+    73: "Snow",
+    75: "Heavy snow",
+    79: "Hail",
 }
