@@ -1,15 +1,20 @@
-from pprint import pprint
-
-import requests
-from weather_codes import weather_from_code
-
 import sys
 
-DEBUG = False
+import requests
 
-args = sys.argv[1:]
-if len(args) > 0:
-    name = ' '.join(args).strip().title()
+from weather_codes import weather_from_code
+
+
+def c_to_f(temp):
+    return round((temp * 9 / 5) + 32)
+
+assert c_to_f(0) == 32
+assert c_to_f(36.5) == 98
+
+args = sys.argv
+
+if len(args) > 1:
+    name = ' '.join(args[1:]).title()
 else:
     name = input("Name: ").strip().title()
 
@@ -27,40 +32,29 @@ headers = {
     'content-type': 'application/json'
 }
 
-response = requests.get(base_url, headers=headers, params=params)
+response = requests.get(base_url, params, headers=headers)
 
 data = response.json()
-
-if DEBUG:
-    print(response.url)
-    pprint(data)
-
 today = data['daily']
 
-high_temp_c = today['temperature_2m_max'][0]
-low_temp_c = today['temperature_2m_min'][0]
-weather_code = today['weathercode'][0]
-weather = weather_from_code[weather_code].lower()
+temp_hi = today['temperature_2m_max'][0]
+temp_lo = today['temperature_2m_min'][0]
 
+code = today['weathercode'][0]
+condition = weather_from_code[code]
 
-def c_to_f(temp_c):
-    return (temp_c * 9 / 5) + 32
+content = f"""Good morning, {name}!
 
+Today's condition: {condition.lower()}.
 
-assert c_to_f(0) == 32, f'Expected 32 but got {c_to_f(0)}'
-assert round(c_to_f(36.7)) == 98, f'Expected 98 but got {round(c_to_f(36.7))}'
-
-message = f"""Good morning {name}!
-
-Today will be {weather}.
-
-High: {high_temp_c:.1f}°C ({c_to_f(high_temp_c):.1f}°F)
-Low: {low_temp_c:.1f}°C ({c_to_f(low_temp_c):.1f}°F)
+High: {temp_hi}°C ({c_to_f(temp_hi)}°F)
+Low: {temp_lo}°C ({c_to_f(temp_lo)}°F)
 
 Remember to:
 """
-with open('reminders.txt') as file:
-    for reminder in file.readlines():
-        message += f"- {reminder}"
 
-print(message)
+with open('reminders.txt') as file:
+    for line in file.readlines():
+        content += '- ' + line
+
+print(content)
