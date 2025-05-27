@@ -1,3 +1,4 @@
+from datetime import datetime
 from pprint import pprint
 
 import requests
@@ -18,7 +19,7 @@ headers = {
     'content-type': 'application/json'
 }
 
-response = requests.get(base_url, headers=headers, params=params)
+response = requests.get(base_url, params=params, headers=headers)
 
 data = response.json()
 
@@ -31,4 +32,10 @@ today = data['daily']
 temp_hi = today['temperature_2m_max'][0]
 temp_lo = today['temperature_2m_min'][0]
 
+# See https://strftime.org/ for datetime format codes
+sunrise = datetime.fromisoformat(today['sunrise'][0]).strftime("%-I:%M %p")
+sunset = datetime.fromisoformat(today['sunset'][0]).strftime("%-I:%M %p")
+
 print(f'Today will have a high of {temp_hi}°C and low of {temp_lo}°C')
+print(f'Sunrise ☀️{sunrise}')
+print(f'Sunset 🌙️{sunset}')
