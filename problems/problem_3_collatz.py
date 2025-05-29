@@ -10,7 +10,7 @@ Print the Collatz sequence for each number from 1 to 100.
 
 
 def assert_equals(actual, expected):
-    """Test helper function"""
+    """Helper function for testing"""
     assert actual == expected, f"Expected {expected}, but got {actual}"
 
 
