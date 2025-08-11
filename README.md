@@ -4,34 +4,40 @@ This is the code for the *O'Reilly Live Training* - **Hands-on Python Foundation
 
 Before the class, please follow these instructions:
 
-1. [Install Python](#1-install-python-36-or-higher)
-2. [Install PyCharm](#2-download-pycharm-community-edition)
+1. [Install Python](#1-install-python)
+2. [Install PyCharm](#2-download-pycharm)
 3. [Install Git](#3-install-git)
 4. [Clone the code](#4-clone-the-course-repository)
 5. [Make sure that you can run Python in PyCharm](#5-make-sure-that-you-can-run-python-in-pycharm)
+
+There is an [Outline and resources](#outline-and-resources) section at the end with lab and video links.
 
 ## Set up instructions
 
 ### 1. Install Python
 
-*Note:* some computers come with Python 2 preinstalled.
-For this course, you'll need Python 3.6 or higher version (like 3.10).
+More detailed instructions can be found here: [Installing Python](https://github.com/ariannedee/python-ide?tab=readme-ov-file#1-installing-python)
+
+For this course, you'll need Python 3.6 or higher version (like 3.13).
 
 Go to https://www.python.org/downloads/
 
 <img width="60%" src="docs/img/python_download.png">
 
-**Mac/Linux**: Follow the prompts and install using the default settings.
+**Mac/Windows**: Follow the prompts and install using the default settings.
 
-**Windows**:
+**Other OS**: Use your package manager or search online for how to install Python.
 
-- You're installing Python now - [instructions](docs/WININSTALL.md)
 
-- You've already installed Python - [instructions](docs/WINSETPATH.md)
+Once installed, you to run Python in the command line:
+- **Mac/Linux**: use `$ python3` to launch the Python Console
+- **Windows**: use `C:\> py` to launch the Python Console
 
-### 2. Download PyCharm CE
+### 2. Download PyCharm
 
-Download the free, community edition
+Additional instructions here: (Get a code editor)[https://github.com/ariannedee/python-ide?tab=readme-ov-file#2-get-a-code-editor]
+
+Download PyCharm.
 https://www.jetbrains.com/pycharm/download/
 
 Install, open, and use the default settings.
@@ -41,7 +47,7 @@ Install, open, and use the default settings.
 Follow your operating system instructions if you don't already have Git installed: 
 [Git install instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-### 4. Clone the course repository 
+### 4. Clone the course repository
 
 Get the code for this course using Git.
 
@@ -68,30 +74,14 @@ With the `python-foundations-3-weeks` folder open in Pycharm:
 3. In the Run tab on the bottom, you should see
    `Process finished with exit code 0`
 
-4. Otherwise, if you got an error (exit code 1 in red), follow the instructions for setting your Python version in PyCharm below
+4. Otherwise, if you got an error (exit code 1 in red), follow the instructions for setting your Python version in your IDE [here](https://github.com/ariannedee/python-ide/blob/main/docs/PYTHON-IDE.md)
 
 ### If you received an error running example_1_first_code, set your Python version in PyCharm
 
-On a Mac:
+See step-by-step instructions here:
 
-- Go to **PyCharm** > **Preferences**
-
-On a PC:
-
-- Go to **File** > **Settings**
-
-Once in Settings:
-
-- Go to **Project: python-foundations-3-weeks** > **Project Interpreter**
-- Look for your Python version in the Project Interpreter dropdown and select it. Please use Python 3.6 or higher.
-- If you found it, click OK and try running `example_1_first_code` again
-- Otherwise, if your version wasn't there, click **gear icon** > **Add...**
-- In the new window, select **System Interpreter** on the left, and then look for the Python version in the dropdown
-- If it's not there, click the **...** button and navigate to your Python location
-- **Note:** For this last step, you may have to search the internet for where Python gets installed by default on your operating system
-
-If you are having trouble configuring your Python version, you can find visual instructions
-here: [Python interpreter setup](docs/PYCHARM_INTERPRETER.md)
+- [PyCharm instructions](https://github.com/ariannedee/python-ide/blob/main/docs/PYTHON-IDE.md)
+- [VS Code instructions](https://github.com/ariannedee/python-ide/blob/main/docs/PYTHON-IDE.md#visual-studio-code)
 
 ## Outline and resources
 
@@ -354,4 +344,4 @@ If you are using VS Code, make sure the Python plugin is installed.
 
 ### PyCharm can't find Python 3
 
-Follow the instructions for [Python interpreter setup](docs/PyCharm_interpreter.md)
+Follow the instructions for [Python interpreter setup](https://github.com/ariannedee/python-ide/blob/main/docs/PYTHON-IDE.md)
