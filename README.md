@@ -89,13 +89,21 @@ Rough week-by-week outline with links to relevant interactive scenarios and pre-
 
 **Interactive scenario list** - [Hands-On Python Foundations Scenarios](https://learning.oreilly.com/playlists/030e1bff-911b-4338-8e3b-4a0a0faa6783/)
 
-**Video lesson 1** - [Introduction to Python](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/)
+**Video lesson 1** - [Introduction to Python 2nd Ed](https://learning.oreilly.com/course/introduction-to-python/9780135390016/)
 
 **Video lesson 2** - [Next Level Python](https://learning.oreilly.com/videos/next-level-python/9780136904083/)
 
 ### Week 1
 
 Getting started with Python
+
+#### 0. Installing PyCharm and getting ready to code
+
+Install Python - 
+[Video 1 lesson 1.1](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_01_01/)
+
+Choose a code editor -
+[Video 1 lesson 1.2](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_01_02/)
 
 #### 1. Running Python
 
@@ -104,8 +112,8 @@ Run Python in interactive and script mode
 [Interactive scenario 1](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X001/)
 (steps 1 & 2)
 /
-[Video 1 lesson 1.2](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_01_02/)
-(0:00 - 2:00 and 12:00 - 13:45)
+[Video 1 lesson 1.2](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_01_02/)
+(6:16 to end)
 
 #### 2. Math
 
@@ -114,8 +122,7 @@ Using operators and importing the `math` module
 [Interactive scenario 1](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X001/)
 (steps 3 - 5)
 /
-[Video 1 lesson 2.1](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_01_02/)
-(2:00 - 12:00)
+[Video 1 lesson 1.3](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_01_03/)
 
 #### 3. Variables
 
@@ -124,7 +131,7 @@ Working with variables, naming rules and keywords
 [Interactive scenario 2](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X002/)
 (step 1)
 /
-[Video 1 lesson 2.2](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_02_02/)
+[Video 1 lesson 2.2](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_02_02/)
 
 #### 4. Types
 
@@ -133,9 +140,9 @@ Basic data types, errors and type casting
 [Interactive scenario 2](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X002/)
 (steps 2 - 4)
 /
-[Video 1 lesson 2.1](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_02_01/)
+[Video 1 lesson 2.1](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_02_01/)
 and
-[Video 1 lesson 2.3](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_02_03/)
+[Video 1 lesson 2.3](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_02_03/)
 
 #### 5. Text formatting
 
@@ -144,7 +151,7 @@ String concatination, formatting and interpolation
 [Interactive scenario 2](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X002/)
 (steps 5 & 6)
 /
-[Video 1 lesson 2.7](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_02_07/)
+[Video 1 lesson 2.4](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_02_04/)
 
 #### 6. Functions
 
@@ -153,7 +160,7 @@ Defining your own functions
 [Interactive scenario 3](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X003/)
 (step 1)
 /
-[Video 1 lesson 2.6](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_02_06/)
+[Video 1 lesson 2.7](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_02_07/)
 
 #### 7. Boolean expressions
 
@@ -162,7 +169,7 @@ True and false expressions, comparisons and methods
 [Interactive scenario 3](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X003/)
 (step 2)
 /
-[Video 1 lesson 3.2](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_03_02/)
+[Video 1 lesson 3.2](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_03_02/)
 
 #### 8. Conditionals
 
@@ -171,7 +178,7 @@ If-elif-else statements
 [Interactive scenario 3](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X003/)
 (step 3)
 /
-[Video 1 lesson 3.3](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_03_03/)
+[Video 1 lesson 3.3](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_03_03/)
 
 #### 9. Loops
 
@@ -180,9 +187,9 @@ While and for loops
 [Interactive scenario 3](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X003/)
 (step 4)
 /
-[Video 1 lesson 4.1 (while loops)](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_04_01/)
+[Video 1 lesson 4.1 (while loops)](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_04_01/)
 and
-[Video 1 lesson 4.4 (for loops)](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_04_01/)
+[Video 1 lesson 4.4 (for loops)](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_04_04/)
 
 ### Week 2
 
@@ -193,7 +200,7 @@ Writing simple scripts
 [Interactive scenario 4](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X004/)
 (step 1)
 /
-[Video 1 lesson 4.3](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_04_03/)
+[Video 1 lesson 4.3](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_04_03/)
 
 #### 2. Dictionaries
 
@@ -207,7 +214,7 @@ Writing simple scripts
 [Interactive scenario 4](https://learning.oreilly.com/scenarios/hands-on-python-foundations/9780137904648X004/)
 (steps 3 & 4)
 /
-[Video 1 lesson 5.2](https://learning.oreilly.com/videos/introduction-to-python/9780135707333/9780135707333-INPY_01_05_02/)
+[Video 1 lesson 5.2](https://learning.oreilly.com/videos/introduction-to-python/9780135390016/9780135390016-INPY2_01_05_02/)
 
 #### 4. Exceptions
 
