@@ -35,7 +35,7 @@ Once installed, you to run Python in the command line:
 
 ### 2. Download PyCharm
 
-Additional instructions here: (Get a code editor)[https://github.com/ariannedee/python-ide?tab=readme-ov-file#2-get-a-code-editor]
+Additional instructions here: [Get a code editor](https://github.com/ariannedee/python-ide?tab=readme-ov-file#2-get-a-code-editor)
 
 Download PyCharm.
 https://www.jetbrains.com/pycharm/download/
