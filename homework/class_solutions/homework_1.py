@@ -1,34 +1,29 @@
 import random
 
-def c_to_f(temp):
-    return round((temp * 9 / 5) + 32)
-
-assert c_to_f(0) == 32
-assert c_to_f(36.5) == 98
+def c_to_f(temp_c):
+    return (temp_c * 9 / 5) + 32
 
 reminders = [
-    "Drink water",
-    "Stretch for 10 minutes",
-    "Go for a brisk walk",
+    "drink water",
+    "stretch for 10 mins",
+    "meditate"
 ]
 
 name = input("Name: ").strip().title()
-weather_conditions = ["sunny", "cloudy", "rainy", "snowy"]
-condition = random.choice(weather_conditions)
-temp_hi = random.randint(10, 20)
-temp_lo = temp_hi - random.randint(5, 10)
+
+weather = random.choice(["sunny", "cloudy", "rainy"])
+temp_c_high = random.randint(15, 30)
+temp_c_low = temp_c_high - random.randint(5, 10)
 
 content = f"""Good morning, {name}!
+Today is going to be {weather}.
 
-Today will be {condition}.
+High: {temp_c_high:.0f}°C ({c_to_f(temp_c_high):.0f}°F)
+Low: {temp_c_low:.0f}°C ({c_to_f(temp_c_low):.0f}°F)
 
-High: {temp_hi}°C ({c_to_f(temp_hi)}°F)
-Low: {temp_lo}°C ({c_to_f(temp_lo)}°F)
-
-Remember to:
-"""
+Remember to:"""
 
 for reminder in reminders:
-    content += f"- {reminder}\n"
+    content += "\n- " + reminder.capitalize()
 
 print(content)
