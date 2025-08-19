@@ -1,13 +1,14 @@
 import requests
+from requests import Response
 
-URL = 'https://github.com/ariannedee/python-foundations-3-weeks'
+URL = "https://google.com"
 
 # Dictionary of HTTP headers
 headers = {'User-Agent': f'Your name (your@email.com)'}
 
 # Dictionary of URL parameters
 params = {'key1': 'value1', 'key2': 'value2'}  # Gets appended to url: {url}?key1=value1&key2=value2
-response = requests.get(URL, headers=headers, params=params)
+response: Response = requests.get(URL, headers=headers, params=params)
 
 # Full list of HTTP status codes: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 # Common status codes:
