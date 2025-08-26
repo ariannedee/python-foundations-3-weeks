@@ -17,13 +17,3 @@ sample_apis = [
 # ANIMAL
 # Cat facts: https://alexwohlbruck.github.io/cat-facts/
 # Dog facts: https://dukengn.github.io/Dog-facts-API/
-current_category = None
-
-for api in sample_apis:
-    category = api["Category"]
-    if category != current_category:
-        if current_category is not None:
-            input()
-        current_category = category
-        print(current_category.upper())
-    print(f"{api['Name']}: {api['URL']}")
