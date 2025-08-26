@@ -5,7 +5,7 @@ import requests
 
 DEBUG = True
 
-base_url = f'https://api.open-meteo.com/v1/forecast'
+base_url = 'https://api.open-meteo.com/v1/forecast'
 
 params = {
     'timezone': 'America/New_York',
