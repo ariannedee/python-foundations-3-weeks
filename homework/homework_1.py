@@ -4,8 +4,9 @@
 # Todo: Create a list of reminders
 
 
-# Todo: Get some input from the user
+# Todo: Get name input from the user
 
+# Todo: Generate random weather data
 
 # Todo: Create a string with email content that includes:
 #       - A greeting
