@@ -5,7 +5,7 @@ https://huggingface.co/docs/inference-providers/guides/first-api-call
 """
 import requests
 
-with open('secrets.txt') as file:
+with open('do_not_show.txt') as file:
     api_key = file.read().strip()
 
 def query_huggingface_ai(prompt, model="meta-llama/Llama-3.2-3B-Instruct"):
