@@ -25,9 +25,12 @@ print(string.title())
 print(string.replace('o', '0'))
 print(string.find('el'))  # returns index or -1 if not found
 
-# Slicing
+# Indexing & slicing
+print(string[0])
+print(string[4])
 print(string[-1])
-print(string[0:4])
+print(string[1:4])
+print(string[:4])
 print(string[5:])
 print(string[::2])
 print(string[::-1])

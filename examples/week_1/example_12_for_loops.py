@@ -15,12 +15,12 @@ print()
 primes = [1, 2, 3, 5, 7, 11, 13]
 # Can loop over lists
 for number in primes:
-    print(number)
+    print(number ** 2)
 
 
 # If you need to know the index, use enumerate()
 for i, number in enumerate(primes):
-    print(f'{i}: {number}')
+    print(f'{i}:{number}² = {number ** 2}')
 
 
 # Complex example - create list of all primes under 100
