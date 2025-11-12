@@ -18,4 +18,4 @@ project/
 
 # Environment variables
 .env
-secrets.txt
+do_not_show.txt
