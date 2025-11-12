@@ -25,7 +25,12 @@ def display_apis(api_list):
         category = api["Category"]
         if category != current_category:
             if current_category is not None:
-                input()
+                input("Enter for next category ")
+                print()
             current_category = category
             print(current_category.upper())
         print(f"{api['Name']}: {api['URL']}")
+
+
+if __name__ == "__main__":
+    display_apis(sample_apis)
