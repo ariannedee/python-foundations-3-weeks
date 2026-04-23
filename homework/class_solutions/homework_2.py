@@ -1,20 +1,36 @@
+import random
 import sys
+
+from weather_codes import weather_from_code
+
+if len(sys.argv) > 1:
+    name = ' '.join(sys.argv[1:]).strip().title()
+else:
+    name = input("Name: ").strip().title()
+
+
+def c_to_f(temp_c):
+    return (temp_c * 9 / 5) + 32
+
+assert c_to_f(0) == 32, f"Expected {32} but got {c_to_f(0)}"
+assert round(c_to_f(36.5)) == 98, f"Expected {98} but got {round(c_to_f(36.5))}"
+
+with open("reminders.txt") as file:
+    todos = list(file.readlines())
+
+from datetime import datetime
 from pprint import pprint
 
 import requests
 
-from weather_codes import weather_from_code
-
-DEBUG = False
-
-args = sys.argv[1:]
+DEBUG = True
 
 base_url = 'https://api.open-meteo.com/v1/forecast'
 
 params = {
-    'timezone': 'America/New_York',
-    'latitude': 42.997262156214305,
-    'longitude': -81.20390128320294,
+    'timezone': 'America/Los_Angeles',
+    'latitude': 49.2497,
+    'longitude': -123.1193,
     'daily': ['weathercode', 'temperature_2m_max', 'temperature_2m_min', 'sunrise', 'sunset'],
     'forecast_days': 1,
 }
@@ -22,17 +38,6 @@ params = {
 headers = {
     'content-type': 'application/json'
 }
-
-def c_to_f(temp_c: float) -> float:
-    return (temp_c * 9 / 5) + 32
-
-assert c_to_f(0) == 32, f"Expected 32 but got {c_to_f(0)}"
-assert round(c_to_f(36.5)) == 98, f"Expected 98 but got {round(c_to_f(36.5))}"
-
-if args:
-    name = " ".join(args)
-else:
-    name = input("Name: ")
 
 response = requests.get(base_url, params=params, headers=headers)
 
@@ -44,25 +49,19 @@ if DEBUG:
 
 today = data['daily']
 
-temp_high = today['temperature_2m_max'][0]
-temp_low = today['temperature_2m_min'][0]
+temp_c_high = today['temperature_2m_max'][0]
+temp_c_low = today['temperature_2m_min'][0]
+weather_code = today['weathercode'][0]
+weather = weather_from_code[weather_code]
 
-weathercode = today['weathercode'][0]
-weather = weather_from_code.get(weathercode, f"Code {weathercode} not found")
+content = f"""Good morning, {name}!
+Today is going to be {weather}.
+High: {temp_c_high}°C ({c_to_f(temp_c_high):.0f}°F)
+Low: {temp_c_low}°C ({c_to_f(temp_c_low):.0f}°F)
 
-content = f"""Good morning, {name.strip().title()}!
+Remember to:"""
 
-Today there will be {weather.lower()}.
-High: {temp_high:.0f}°C ({c_to_f(temp_high):.0f}°F)
-Low: {temp_low:.0f}°C ({c_to_f(temp_low):.0f}°F)
-
-Daily mantra:
-{'Seize the day!'}
-
-Remember to:
-"""
-with open("reminders.txt", "rt") as file:
-    for reminder in file.readlines():
-        content += f"- {reminder}"
+for todo in todos:
+    content += "\n- " + todo.strip()
 
 print(content)
