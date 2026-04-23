@@ -4,7 +4,7 @@ try:
     print(hi)
 except (ValueError, NameError) as e:  # Catch multiple error types
     print("Fail!")
-    print(e)
+    print(repr(e))
 
 
 try:
@@ -19,11 +19,10 @@ except NameError:
 
 try:
     int('5')
-    print('Success!')
 except ValueError:
     print("Fail!")
 else:
-    print('Everything worked')  # Runs after try block finishes without errors
+    print('Success!')  # Runs after try block finishes without errors
 finally:
     print('This always happens')  # Runs after everything, even if there was an error
 
