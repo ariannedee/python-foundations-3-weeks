@@ -15,7 +15,7 @@ def c_to_f(temp_c):
 assert c_to_f(0) == 32, f"Expected {32} but got {c_to_f(0)}"
 assert round(c_to_f(36.5)) == 98, f"Expected {98} but got {round(c_to_f(36.5))}"
 
-with open("reminders.txt") as file:
+with open("todos.txt") as file:
     todos = list(file.readlines())
 
 from datetime import datetime
@@ -52,10 +52,14 @@ today = data['daily']
 temp_c_high = today['temperature_2m_max'][0]
 temp_c_low = today['temperature_2m_min'][0]
 weather_code = today['weathercode'][0]
-weather = weather_from_code[weather_code]
+try:
+    weather = weather_from_code[weather_code]
+except KeyError:
+    print(f"Weather code {weather_code} not found")
+    weather = "unknown"
 
 content = f"""Good morning, {name}!
-Today is going to be {weather}.
+Today is going to be {weather.lower()}.
 High: {temp_c_high}°C ({c_to_f(temp_c_high):.0f}°F)
 Low: {temp_c_low}°C ({c_to_f(temp_c_low):.0f}°F)
 
