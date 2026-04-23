@@ -36,6 +36,7 @@ print(os.environ.get('API_KEY'))  # environ is a dict of all variables
 # Okay if only a small number in a specific order/format
 with open('secrets.txt') as file:
     api_key = file.read().strip()
+    print(api_key)
 
 
 # OPTION 4
