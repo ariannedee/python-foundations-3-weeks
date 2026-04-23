@@ -5,10 +5,10 @@ https://huggingface.co/docs/inference-providers/guides/first-api-call
 """
 import requests
 
-with open('do_not_show.txt') as file:
+with open('do_not_show.txt') as file:  # Add this file with your API key
     api_key = file.read().strip()
 
-def query_huggingface_ai(prompt, model="meta-llama/Llama-3.2-3B-Instruct"):
+def query_huggingface_ai(prompt, model="Qwen/Qwen2.5-7B-Instruct:together"):
     api_url = "https://router.huggingface.co/v1/chat/completions"
 
     headers = {"Authorization": f"Bearer {api_key}"}
@@ -28,10 +28,7 @@ def query_huggingface_ai(prompt, model="meta-llama/Llama-3.2-3B-Instruct"):
     data = response.json()
     return data["choices"][0]["message"]
 
-def send_message(prompt=None):
-    if prompt is None:
-        prompt = "What's the answer to life?"
-
+def send_message(prompt):
     content = query_huggingface_ai(prompt)
 
     if content:
@@ -39,16 +36,5 @@ def send_message(prompt=None):
     else:
         return content
 
-def start_chat():
-    print("Start chatting with AI. Q to quit.")
-
-    while True:
-        prompt = input("> ")
-        if prompt.lower() == 'q':
-            break
-        response = send_message(prompt)
-        print(response)
-
 if __name__ == "__main__":
-    print(send_message())
-    # start_chat()
+    print(send_message("What's the answer to life?"))

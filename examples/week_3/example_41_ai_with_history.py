@@ -14,7 +14,7 @@ chat_history = []
 with open('do_not_show.txt') as file:
     api_key = file.read().strip()
 
-def query_huggingface_ai(prompt, model="meta-llama/Llama-3.2-3B-Instruct"):
+def query_huggingface_ai(prompt, model="Qwen/Qwen2.5-7B-Instruct:together"):
     api_url = "https://router.huggingface.co/v1/chat/completions"
 
     headers = {"Authorization": f"Bearer {api_key}"}
