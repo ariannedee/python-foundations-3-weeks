@@ -20,3 +20,6 @@ project/
 # Environment variables
 .env
 do_not_show.txt
+
+# Other
+.DS_store
