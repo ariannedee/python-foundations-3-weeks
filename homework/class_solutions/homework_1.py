@@ -1,32 +1,31 @@
 import random
 
-
-def c_to_f(temp_c):
+def c_to_f(temp_c: int | float) -> float:
     return (temp_c * 9 / 5) + 32
 
-assert c_to_f(0) == 32, f"Expected {32} but got {c_to_f(0)}"
-assert round(c_to_f(36.5)) == 98, f"Expected {98} but got {round(c_to_f(36.5))}"
+name = input("Name: ").strip()
 
-todos = [
+weather_conditions = ["sunny", "partly cloudy", "cloudy", "rainy"]
+weather = random.choice(weather_conditions)
+temp_c_high = random.randint(18, 35)
+temp_c_low = temp_c_high - random.randint(5, 15)
+
+reminders = [
+    "Send email to Laura",
     "Get groceries",
-    "Drink water",
-    "Go to gym",
+    "Exercise",
 ]
 
-name = input("Name: ").strip().title()
-weather_conditions = ["sunny", "cloudy", "rainy"]
-weather = random.choice(weather_conditions)
-temp_c_high = random.randint(7, 20)
-temp_c_low = temp_c_high - random.randint(4, 8)
+content = f"""Good morning, {name.title()}!
 
-content = f"""Good morning, {name}!
-Today is going to be {weather}.
+Today is going to be {weather.lower()}.
 High: {temp_c_high}°C ({c_to_f(temp_c_high):.0f}°F)
 Low: {temp_c_low}°C ({c_to_f(temp_c_low):.0f}°F)
 
-Remember to:"""
+Remember to:
+"""
 
-for todo in todos:
-    content += "\n- " + todo
+for reminder in reminders:
+    content += f"- {reminder}\n"
 
 print(content)
